@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
 import Image from "next/image";
-import Link from "next/link";
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);

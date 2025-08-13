@@ -10,6 +10,8 @@ const MotionImage = motion.create(
   )
 );
 
+MotionImage.displayName = "MotionImage";
+
 type ProductsDesc = {
   id: number;
   name: string;

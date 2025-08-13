@@ -2,37 +2,31 @@
     {
         "id" : 1,
         "name" : "Aileen Baltazar",
-        "avatar" : "https://img.daisyui.com/images/profile/demo/distracted2@192.webp",
         "message" : "The craftsmanship on my new dining table is outstanding. It feels sturdy and looks elegant in my home. Delivery was prompt and hassle-free!"
     },
     {
         "id" : 2,
         "name" : "John Doe",
-        "avatar" : "https://img.daisyui.com/images/profile/demo/idiotsandwich@192.webp",
-        "message" : "I’m so happy with my comfy sofa! The fabric is soft but durable, and it really completes my living room. Customer service was friendly and helpful."
+        "message" : "I&apos;m so happy with my comfy sofa! The fabric is soft but durable, and it really completes my living room. Customer service was friendly and helpful."
     },
     {
         "id" : 3,
         "name" : "Calvin Baltazar",
-        "avatar" : "https://img.daisyui.com/images/profile/demo/superperson@192.webp",
-        "message" : "Great value for the price! The bed frame arrived well-packaged and was easy to assemble. It’s very solid and stylish."
+        "message" : "Great value for the price! The bed frame arrived well-packaged and was easy to assemble. It&apos;s very solid and stylish."
     },
     {
         "id" : 4,
         "name" : "Juan Bautista",
-        "avatar" : "https://img.daisyui.com/images/profile/demo/distracted1@192.webp",
         "message" : "I bought a set of chairs and they are both beautiful and comfortable. The design is modern and fits perfectly with my décor."
     },
     {
         "id" : 5,
         "name" : "Roronoa Zoro",
-        "avatar" : "https://img.daisyui.com/images/profile/demo/averagebulk@192.webp",
         "message" : "The office desk I ordered is exactly what I needed — spacious and functional. Plus, the shipping was surprisingly fast!"
     },
     {
         "id" : 6,
         "name" : "Doe John",
-        "avatar" : "https://img.daisyui.com/images/profile/demo/batperson@192.webp",
         "message" : "Excellent quality and attention to detail. The bookshelf looks amazing and holds all my books perfectly. I recommend this store to everyone!"
     }
 ]

@@ -9,6 +9,8 @@ const MotionImage = motion.create(
   )
 );
 
+MotionImage.displayName = "MotionImage";
+
 const Aboutus = () => {
   return (
     <div>
@@ -30,7 +32,7 @@ const Aboutus = () => {
             width={280}
             height={420}
             src="/images/bed.jpg"
-            alt=""
+            alt="Bed Furniture"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -61,7 +63,7 @@ const Aboutus = () => {
               width={280}
               height={420}
               src="/images/bed.jpg"
-              alt=""
+              alt="Bed Furniture"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
@@ -70,7 +72,7 @@ const Aboutus = () => {
               width={280}
               height={420}
               src="/images/plant.jpg"
-              alt=""
+              alt="Plant Furniture"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />

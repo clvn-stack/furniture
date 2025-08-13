@@ -1,9 +1,6 @@
 "use client";
 import React from "react";
 
-const containerStyle = { width: "100%", height: "400px" };
-const center = { lat: 14.5995, lng: 120.9842 };
-
 const Map = () => {
   return (
     <div style={{ width: "100%", height: "100%" }}>

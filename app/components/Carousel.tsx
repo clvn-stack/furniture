@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 type Data = {
   id: number;
@@ -28,7 +29,7 @@ const Carousel = ({ slideData, onActiveData }: DataProps) => {
   useEffect(() => {
     const activeItem = items[activeIndex];
     onActiveData(activeItem);
-  }, [activeIndex]);
+  }, [activeIndex, items, onActiveData]);
 
   const visibleItems = items.slice(0, VISIBLE_COUNT);
 
@@ -45,7 +46,9 @@ const Carousel = ({ slideData, onActiveData }: DataProps) => {
                 isActive ? "lg:-translate-y-4" : ""
               }`}
             >
-              <img
+              <Image
+                width="388"
+                height="296"
                 className="w-full h-full rounded-2xl"
                 src={`/images/${item.bg}.jpg`}
                 alt={item.bg}

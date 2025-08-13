@@ -1,10 +1,10 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 
 type Cards = {
   id: number;
   name: string;
-  avatar: string;
   message: string;
 };
 
@@ -25,16 +25,14 @@ const Testimonials = ({ cards }: CardsProps) => {
     ...cards.slice(0, cardsPerView),
   ];
 
+  // Update cardsPerView on window resize
   useEffect(() => {
     const updateCardsPerView = () => {
       const width = window.innerWidth;
       let perView = 3;
 
-      if (width < 768) {
-        perView = 1;
-      } else if (width >= 768 && width < 1024) {
-        perView = 2;
-      }
+      if (width < 768) perView = 1;
+      else if (width < 1024) perView = 2;
 
       setCardsPerView(perView);
       setIndex(perView);
@@ -45,11 +43,13 @@ const Testimonials = ({ cards }: CardsProps) => {
     return () => window.removeEventListener("resize", updateCardsPerView);
   }, []);
 
-  const nextSlide = () => {
+  // Memoized nextSlide function
+  const nextSlide = useCallback(() => {
     if (index >= extendedCards.length - cardsPerView) return;
     setIndex((prev) => prev + 1);
-  };
+  }, [index, extendedCards.length, cardsPerView]);
 
+  // Handle looping logic
   useEffect(() => {
     if (!transitionEnabled) return;
 
@@ -72,6 +72,7 @@ const Testimonials = ({ cards }: CardsProps) => {
     };
   }, [index, extendedCards.length, cardsPerView, transitionEnabled]);
 
+  // Re-enable transition after reset
   useEffect(() => {
     if (!transitionEnabled) {
       requestAnimationFrame(() => {
@@ -82,11 +83,12 @@ const Testimonials = ({ cards }: CardsProps) => {
     }
   }, [transitionEnabled]);
 
+  // Auto-slide interval
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(nextSlide, 3000);
     return () => clearInterval(interval);
-  }, [isPaused, index, cardsPerView]);
+  }, [isPaused, nextSlide]); // <-- use nextSlide here
 
   return (
     <div
@@ -128,11 +130,6 @@ const Testimonials = ({ cards }: CardsProps) => {
                 }}
               >
                 <div className="flex flex-col gap-2 justify-center items-center">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-18">
-                      <img src={card.avatar} />
-                    </div>
-                  </div>
                   <div className="text-md text-black">{card.name}</div>
                   <div className="text-gray-400 text-sm font-normal italic">
                     {`"${card.message}"`}
