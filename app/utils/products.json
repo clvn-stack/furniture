@@ -1,0 +1,55 @@
+[
+    {
+        "id" : 1,
+        "name" : "willow oak skye seat",
+        "img" : "chair2",
+        "desc" : "Elevate your space with the timeless charm of the Willow Oak Skye Seat — a graceful blend of natural beauty and modern minimalism. Crafted from premium oak wood with a soft matte finish, this chair features smooth, sculpted lines and a light-toned grain that evokes the serenity of open skies and calm interiors.",
+        "category" : "chair",
+        "material" : "wood",
+        "finish" : "carbon",
+        "weight" : 20,
+        "capacity" : 1,
+        "durability" : "80",
+        "style" : [{"stylename" : "vintage"},{"stylename" : "rustic" },{"stylename" : "elegant" }]
+    },
+    {
+        "id" : 2,
+        "name" : "Willow Crest",
+        "img" : "chair",
+        "desc" : "Elevate your space with the Willow Crest, a sculpted lampshade inspired by the gentle curves of willow branches and the quiet elegance of natural textures. Its soft-diffused glow brings warmth and serenity, perfect for both minimal interiors and cozy corners. Hand-finished with care, it balances organic grace with modern simplicity — a timeless piece designed to calm and inspire.",
+        "category" : "table",
+        "material" : "wood",
+        "finish" : "carbon",
+        "weight" : 20,
+        "capacity" : 2,
+        "durability" : "60",
+        "style" : [{"stylename" : "luxury"},{"stylename" : "artsy" },{"stylename" : "elegant" }]
+    }  
+    ,
+    {
+        "id" : 3,
+        "name" : "Aera Surface",
+        "img" : "table2",
+        "desc" : "The Aera Surface embodies refined simplicity — a sleek, minimalist tabletop designed to elevate everyday spaces. With clean lines and a breathable, open feel, it seamlessly blends form and function. Whether used as a workspace, dining table, or statement piece, Aera offers a grounded presence while keeping your environment light and modern. Crafted with precision, it’s built to last — and made to be noticed.",
+        "category" : "table",
+        "material" : "wood",
+        "finish" : "carbon",
+        "weight" : 60,
+        "capacity" : 2,
+        "durability" : "80",
+        "style" : [{"stylename" : "cozy"},{"stylename" : "artsy" },{"stylename" : "elegant" }]
+    },
+    {
+        "id" : 4,
+        "name" : "Teakform",
+        "img" : "table",
+        "desc" : "brings together the natural richness of solid teak wood with sculpted, contemporary lines. Built to highlight the wood’s organic grain and golden warmth, this piece balances durability with elegance. Its form is both timeless and modern — perfect for interiors that appreciate craftsmanship, texture, and quiet luxury. Made to age gracefully, Teakform is more than furniture — it's a statement in sustainable design.",
+        "category" : "table",
+        "material" : "wood",
+        "finish" : "carbon",
+        "weight" : 20,
+        "capacity" : 2,
+        "durability" : "50",
+        "style" : [{"stylename" : "classic"},{"stylename" : "artsy" },{"stylename" : "elegant" }]
+    }
+]

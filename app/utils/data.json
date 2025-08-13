@@ -1,0 +1,6 @@
+[
+    { "id": 1, "text": "Item 1", "bg": "hero" },
+    { "id": 2, "text": "Item 2", "bg": "sala" },
+    { "id": 3, "text": "Item 3", "bg": "livi" },
+    { "id": 4, "text": "Item 4", "bg": "aesthetic" }
+  ]
