@@ -116,7 +116,7 @@ const Header = () => {
                   <a
                     key={index}
                     href={`#${item.anch}`}
-                    className={`hover:text-[#83603d] ${
+                    className={`hover:text-[#83603d] capitalize ${
                       activeSection === item.anch ? "text-[#83603d]" : ""
                     }`}
                     onClick={() => setIsOpen(false)}

@@ -94,9 +94,9 @@ const Products: React.FC<ProductProps> = ({ prod }) => {
                     animateProps={{ opacity: [0, 1], scale: [0.95, 1] }}
                     transitionProps={{ duration: 0.3 }}
                     onAnimationComplete={() => setIsAnimating(false)}
-                    className="w-full h-full object-contain"
-                    width={420}
-                    height={256}
+                    className=""
+                    width={260}
+                    height={126}
                   />
                 </AnimatePresence>
               </div>
