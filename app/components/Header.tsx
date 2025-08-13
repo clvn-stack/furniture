@@ -89,9 +89,11 @@ const Header = () => {
           </div>
 
           <div className="hidden lg:flex">
-            <button className="bg-[#d1b496] px-4 py-2 text-sm text-white rounded-xl active:bg-black/70 cursor-pointer hover:scale-105 transition duration-300 ease-in-out">
-              Contact us
-            </button>
+            <a href="#contact">
+              <button className="bg-[#d1b496] px-4 py-2 text-sm text-white rounded-xl active:bg-black/70 cursor-pointer hover:scale-105 transition duration-300 ease-in-out">
+                Contact us
+              </button>
+            </a>
           </div>
 
           <div className="flex lg:hidden items-center">
@@ -124,9 +126,11 @@ const Header = () => {
                     {item.tag}
                   </a>
                 ))}
-                <button className="bg-[#d1b496] text-white px-4 py-2 rounded-lg mt-2 active:bg-black/70 w-full">
-                  Contact us
-                </button>
+                <a href="#contact">
+                  <button className="bg-[#d1b496] text-white px-4 py-2 rounded-lg mt-2 active:bg-black/70 w-full">
+                    Contact us
+                  </button>
+                </a>
               </motion.div>
             )}
           </AnimatePresence>
