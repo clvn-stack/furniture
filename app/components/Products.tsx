@@ -1,17 +1,34 @@
 "use client";
 import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, MotionProps } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 
-const MotionImage = motion.create(
-  React.forwardRef<HTMLImageElement, React.ComponentProps<typeof Image>>(
-    (props, ref) => <Image {...props} ref={ref} />
-  )
+interface MotionImageProps extends ImageProps {
+  animateProps?: MotionProps["animate"];
+  transitionProps?: MotionProps["transition"];
+  onAnimationComplete?: () => void;
+  alt: string;
+}
+
+export const MotionImage: React.FC<MotionImageProps> = ({
+  animateProps,
+  transitionProps,
+  onAnimationComplete,
+  alt,
+  ...imgProps
+}) => (
+  <motion.div
+    animate={animateProps}
+    transition={transitionProps}
+    onAnimationComplete={onAnimationComplete}
+  >
+    <Image {...imgProps} alt={alt} />
+  </motion.div>
 );
-
 MotionImage.displayName = "MotionImage";
 
+// Product types
 type ProductsDesc = {
   id: number;
   name: string;
@@ -30,7 +47,7 @@ interface ProductProps {
   prod: ProductsDesc[];
 }
 
-const Products = ({ prod }: ProductProps) => {
+const Products: React.FC<ProductProps> = ({ prod }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const durability = parseInt(prod[activeIndex].durability);
@@ -73,35 +90,31 @@ const Products = ({ prod }: ProductProps) => {
                   <MotionImage
                     key={prod[activeIndex].id}
                     src={`/images/${prod[activeIndex].img}.png`}
-                    alt={prod[activeIndex].name}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
+                    alt={prod[activeIndex].name || "Product image"}
+                    animateProps={{ opacity: [0, 1], scale: [0.95, 1] }}
+                    transitionProps={{ duration: 0.3 }}
                     onAnimationComplete={() => setIsAnimating(false)}
                     className="w-full h-full object-contain"
-                    loading="eager"
                     width={420}
                     height={256}
                   />
                 </AnimatePresence>
               </div>
             </div>
-            <div className="">
-              <div className="flex justify-center gap-4">
-                <button
-                  onClick={handlePrev}
-                  className="bg-[#a9835e] p-2 rounded-full shadow hover:scale-105 transition"
-                >
-                  <ArrowLeft />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="bg-[#a9835e] p-2 rounded-full shadow hover:scale-105 transition"
-                >
-                  <ArrowRight />
-                </button>
-              </div>
+
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={handlePrev}
+                className="bg-[#a9835e] p-2 rounded-full shadow hover:scale-105 transition"
+              >
+                <ArrowLeft />
+              </button>
+              <button
+                onClick={handleNext}
+                className="bg-[#a9835e] p-2 rounded-full shadow hover:scale-105 transition"
+              >
+                <ArrowRight />
+              </button>
             </div>
           </div>
 
@@ -128,25 +141,25 @@ const Products = ({ prod }: ProductProps) => {
               </div>
 
               <div className="category text-md font-bold text-[#a9835e] capitalize">
-                Category :{" "}
+                Category:{" "}
                 <span className="text-gray-400 font-normal">
                   {prod[activeIndex].category}
                 </span>
               </div>
               <div className="category text-md font-bold text-[#a9835e]">
-                Weight :{" "}
+                Weight:{" "}
                 <span className="text-gray-400 font-normal">
                   {prod[activeIndex].weight}kg
                 </span>
               </div>
               <div className="category text-md font-bold text-[#a9835e]">
-                Capacity :{" "}
+                Capacity:{" "}
                 <span className="font-normal p-2 text-gray-400 text-md">
                   {prod[activeIndex].capacity}
                 </span>
               </div>
               <div className="category text-md font-bold text-[#a9835e]">
-                Style :{" "}
+                Style:{" "}
                 <span className="font-normal p-2 text-gray-400 text-md capitalize">
                   {prod[activeIndex].style.map((s) => s.stylename).join(", ")}
                 </span>
@@ -159,4 +172,5 @@ const Products = ({ prod }: ProductProps) => {
   );
 };
 
+Products.displayName = "Products";
 export default Products;

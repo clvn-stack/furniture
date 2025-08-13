@@ -1,17 +1,31 @@
 "use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
 import React from "react";
+import { motion, MotionProps } from "framer-motion";
+import Image, { ImageProps } from "next/image";
 
-const MotionImage = motion.create(
-  React.forwardRef<HTMLImageElement, React.ComponentProps<typeof Image>>(
-    (props, ref) => <Image {...props} ref={ref} />
-  )
-);
+// MotionImage wrapper using motion.div
+interface MotionImageProps extends ImageProps {
+  animateProps?: MotionProps["animate"];
+  transitionProps?: MotionProps["transition"];
+  alt: string; // explicitly require alt
+}
 
+export const MotionImage: React.FC<MotionImageProps> = ({
+  animateProps,
+  transitionProps,
+  alt,
+  ...imgProps
+}) => {
+  return (
+    <motion.div animate={animateProps} transition={transitionProps}>
+      <Image {...imgProps} alt={alt} />
+    </motion.div>
+  );
+};
 MotionImage.displayName = "MotionImage";
 
-const Aboutus = () => {
+// Aboutus component
+const Aboutus: React.FC = () => {
   return (
     <div>
       <div className="flex justify-center text-center">
@@ -33,15 +47,19 @@ const Aboutus = () => {
             height={420}
             src="/images/bed.jpg"
             alt="Bed Furniture"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            animateProps={{ y: [0, -10, 0] }}
+            transitionProps={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
           />
         </div>
 
         {/* Center text */}
         <div className="col-span-1">
           <div className="px-4 pb-12 lg:py-6 text-md text-gray-500">
-            We are a modern furnishing brand focused on{" "}
+            We are a modern furnishing brand focused{" "}
             <span className="text-[#a9835e] font-bold">simplicity</span>,
             functionality, and timeless design. Our mission is to make living
             spaces feel intentional and effortless—offering clean, minimalist
@@ -49,7 +67,7 @@ const Aboutus = () => {
             <br />
             <br />
             We believe that a well-designed space can bring clarity and calm.
-            That’s why we prioritize honest materials, clean lines, and
+            That&apos;s why we prioritize honest materials, clean lines, and
             thoughtful craftsmanship in every piece we make. Our goal is to
             simplify your space—so you can focus on what truly matters.
           </div>
@@ -64,8 +82,12 @@ const Aboutus = () => {
               height={420}
               src="/images/bed.jpg"
               alt="Bed Furniture"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              animateProps={{ y: [0, -10, 0] }}
+              transitionProps={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             />
             <MotionImage
               className="w-[280px] rounded-4xl"
@@ -73,8 +95,12 @@ const Aboutus = () => {
               height={420}
               src="/images/plant.jpg"
               alt="Plant Furniture"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              animateProps={{ y: [0, -10, 0] }}
+              transitionProps={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             />
           </div>
         </div>
@@ -83,4 +109,5 @@ const Aboutus = () => {
   );
 };
 
+Aboutus.displayName = "Aboutus";
 export default Aboutus;
