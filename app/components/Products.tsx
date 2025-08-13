@@ -159,7 +159,7 @@ const Products: React.FC<ProductProps> = ({ prod }) => {
                 </span>
               </div>
               <div className="category text-md font-bold text-[#a9835e]">
-                Style:{" "}
+                Styles:{" "}
                 <span className="font-normal p-2 text-gray-400 text-md capitalize">
                   {prod[activeIndex].style.map((s) => s.stylename).join(", ")}
                 </span>
